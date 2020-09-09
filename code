@@ -1,0 +1,25 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+         // Create an empty hash map 
+        HashMap<Integer, Integer> map 
+            = new HashMap<>(); 
+        // i = index 
+        for(int i = 0; i < nums.length; i++){
+            //int complement is number to be found later
+            //target is defined in problem; end goal number
+            //nums[i] = number at the index of the array 
+            int Complement = target - nums[i];
+            //if map contains number in array at the index, get the index of the
+            //complementary number and return the pair. 
+            if(map.containsKey(nums[i])){
+                int index = map.get(nums[i]);
+                return new int [] {index, i};
+            }
+            //if it is not in the map, store the complement and its index. 
+            map.put(Complement, i);
+        }
+        //if all fails, return empty array. 
+        return new int [0];
+    }
+    
+}
